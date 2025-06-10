@@ -310,7 +310,10 @@ threads executing the kernel using the following structures:
 | [`block_dim`](/mojo/stdlib/gpu/id/#block_dim)  | Dimensions of the thread block as `x`, `y`, and `z` values. |
 | [`block_idx`](/mojo/stdlib/gpu/id/#block_idx)  | Index of the block within the grid as `x`, `y`, and `z` values. |
 | [`thread_idx`](/mojo/stdlib/gpu/id/#thread_idx)  | Index of the thread within the block as `x`, `y`, and `z` values. |
-| [`global_idx`](/mojo/stdlib/gpu/id/#global_idx) | The global offset of the thread as `x`, `y`, and `z` values. That is, `global_idx.x = block_dim.x * block_idx.x + thread_idx.x`, `global_idx.y = block_dim.y * block_idx.y + thread_idx.y`, and `global_idx.z = block_dim.z * block_idx.z + thread_idx.z`. |
+| [`global_idx`](/mojo/stdlib/gpu/id/#global_idx) | The global offset of the thread as `x`, `y`, and `z` values. That is: |
+| | `global_idx.x = block_dim.x * block_idx.x + thread_idx.x`,| 
+| | `global_idx.y = block_dim.y * block_idx.y + thread_idx.y`,|
+| | `global_idx.z = block_dim.z * block_idx.z + thread_idx.z`.|
 
 Here is a complete example showing a kernel function that simply prints the
 thread block index, thread index, and global index for each thread executed.
